@@ -9,10 +9,16 @@ class PolyTreeNode
         @children = []
     end
 
-    def parent=(node)
-        @parent = value
-        @parent.children << child_a
-        # @children = node.first
+    def parent=(new_parent)
+   
+        if self.parent
+            old_parent = self.parent
+            old_parent.children.delete(self)
+        end
+
+        @parent = new_parent
+        @parent.children << self unless new_parent == nil
+        
     end
 
 end
