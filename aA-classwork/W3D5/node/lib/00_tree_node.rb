@@ -21,4 +21,19 @@ class PolyTreeNode
         
     end
 
+    def add_child(child_node)
+        # add child to children arr
+        # need to reassign @parent
+        if !self.children.include?(child_node) 
+            child_node.parent = self
+        end
+    end
+
+    def remove_child(child_node)
+        if child_node.parent == nil
+            raise "node is not a child"
+        else
+            child_node.parent = nil
+        end
+    end
 end
